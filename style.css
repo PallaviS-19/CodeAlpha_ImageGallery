@@ -1,0 +1,166 @@
+
+/* ===== BASIC PAGE DESIGN ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    padding: 35px 5%;
+    text-align: center;
+    min-height: 100vh;
+
+    background: linear-gradient(
+        135deg,
+        #e0c3fc 0%,
+        #c2e9fb 35%,
+        #fbc2eb 70%,
+        #dbeafe 100%
+    );
+    background-attachment: fixed;
+}
+
+/* ===== GALLERY HEADING ===== */
+h1 {
+    margin-bottom: 12px;
+    font-size: clamp(30px, 4vw, 46px);
+    font-weight: 800;
+    letter-spacing: 1px;
+    color: #30245c;
+    text-shadow: 0 3px 12px rgba(78, 55, 130, 0.12);
+}
+
+p {
+    color: #5d5578;
+    font-size: 17px;
+    margin-bottom: 35px;
+    line-height: 1.6;
+}
+
+/* ===== GALLERY GRID ===== */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 28px;
+    max-width: 1150px;
+    margin: 35px auto;
+}
+
+/* ===== GALLERY CARDS ===== */
+.gallery-item {
+    display: block;
+    min-width: 0;
+    padding: 0;
+    overflow: hidden;
+
+    background: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.9);
+    border-radius: 20px;
+
+    box-shadow:
+        0 8px 25px rgba(60, 45, 100, 0.10),
+        0 2px 6px rgba(60, 45, 100, 0.05);
+
+    /* Remove link underline */
+    text-decoration: none;
+    color: inherit;
+
+    transition:
+        transform 0.35s ease,
+        box-shadow 0.35s ease,
+        background 0.35s ease;
+}
+
+/* ===== CARD HOVER EFFECT ===== */
+.gallery-item:hover {
+    transform: translateY(-8px);
+    background: #ffffff;
+
+    box-shadow:
+        0 18px 35px rgba(70, 50, 120, 0.20),
+        0 5px 12px rgba(70, 50, 120, 0.08);
+}
+
+/* ===== IMAGE FITTING ===== */
+.gallery-item img {
+    display: block;
+    width: 100%;
+    height: 220px;
+
+    /* Fill the complete image area */
+    object-fit: cover;
+    object-position: center;
+
+    /* Image touches the card edges */
+    margin: 0;
+    padding: 0;
+    border: none;
+    border-radius: 19px 19px 0 0;
+
+    transition: transform 0.35s ease;
+}
+
+/* ===== IMAGE HOVER ZOOM ===== */
+.gallery-item:hover img {
+    transform: scale(1.02);
+}
+
+/* ===== IMAGE TITLES ===== */
+.gallery-item h3 {
+    margin: 0;
+    padding: 18px 10px 20px;
+
+    font-size: 18px;
+    font-weight: 700;
+    color: #34265f;
+    letter-spacing: 0.3px;
+
+    /* Remove text underline */
+    text-decoration: none;
+}
+
+/* Keep underline removed in every link state */
+.gallery-item:link,
+.gallery-item:visited,
+.gallery-item:hover,
+.gallery-item:active {
+    text-decoration: none;
+}
+
+/* ===== TABLET ===== */
+@media (max-width: 768px) {
+    body {
+        padding: 28px 4%;
+    }
+
+    .gallery {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 20px;
+    }
+
+    .gallery-item img {
+        height: 200px;
+    }
+}
+
+/* ===== MOBILE ===== */
+@media (max-width: 480px) {
+    body {
+        padding: 25px 16px;
+    }
+
+    .gallery {
+        grid-template-columns: 1fr;
+        gap: 22px;
+    }
+
+    .gallery-item img {
+        height: 240px;
+    }
+
+    h1 {
+        font-size: 30px;
+    }
+}
